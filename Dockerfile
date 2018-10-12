@@ -1,12 +1,7 @@
 FROM node:6.9.3
 RUN ["apt-get", "update", "-qq"]
-RUN ["apt-get", "install", "-y", "--no-install-recommends", "build-essential", "g++", "python2.7", "python2.7-dev", "unzip", "curl"]
+RUN ["apt-get", "install", "-y", "--no-install-recommends", "build-essential", "g++", "python2.7", "python2.7-dev", "unzip", "curl", "gettext", "jq"]
 RUN ["rm", "-rf", "/var/lib/apt/lists/*"]
-RUN ["mkdir", "-p", "/tmp"]
-RUN ["cd", "/tmp"]
 RUN ["curl", "-O", "https://bootstrap.pypa.io/get-pip.py"]
 RUN ["python", "get-pip.py"]
 RUN ["pip", "install", "awscli"]
-RUN ["rm", "-f", "/tmp/get-pip.py"]
-RUN ["apt-get", "install", "-y", "gettext"]
-RUN ["apt-get", "install", "-y", "jq"]
